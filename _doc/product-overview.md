@@ -1,7 +1,7 @@
 # TixTax
 
 ## Product
-A lightweight, browser-based two-player Tic-Tac-Toe game. Players take turns marking X and O on a 5×5 grid. The first to align five marks (row, column, or diagonal) wins. If all twenty-five cells fill with no winner, the game ends in a draw. Score tracking persists across rounds in the same session.
+A lightweight, browser-based two-player Tic-Tac-Toe game. Players take turns marking X and O on a 6×6 grid. The first to align six marks (row, column, or diagonal) wins. If all thirty-six cells fill with no winner, the game ends in a draw. Score tracking persists across rounds in the same session.
 
 ## Users
 Personal fun side project. Primarily solo use — one person playing both sides, or two people on the same device. No accounts, no downloads — open the URL and play.
