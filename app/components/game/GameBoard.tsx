@@ -11,7 +11,7 @@ interface GameBoardProps {
 }
 
 /**
- * Renders the 5×5 game grid. Delegates individual cell rendering to BoardCell.
+ * Renders the 6×6 game grid. Delegates individual cell rendering to BoardCell.
  */
 export function GameBoard({ game, playerXColor, playerOColor, onMove }: GameBoardProps) {
   const { board, winningLine, status } = game;
@@ -24,7 +24,7 @@ export function GameBoard({ game, playerXColor, playerOColor, onMove }: GameBoar
     >
       <div
         className="grid gap-2"
-        style={{ gridTemplateColumns: "repeat(5, 1fr)" }}
+        style={{ gridTemplateColumns: "repeat(6, 1fr)" }}
       >
         {board.map((cell, index) => (
           <BoardCell
