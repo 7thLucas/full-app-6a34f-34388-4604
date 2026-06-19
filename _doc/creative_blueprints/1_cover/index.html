@@ -1,0 +1,29 @@
+<style>
+  .mode-landscape .sl-root { flex-direction: row; }
+  .mode-portrait .sl-root { flex-direction: column; }
+  .mode-landscape .sl-left { width: 55%; height: 100%; }
+  .mode-portrait .sl-left { width: 100%; flex: 1; }
+  .mode-landscape .sl-right { width: 45%; height: 100%; }
+  .mode-portrait .sl-right { width: 100%; height: 38%; }
+</style>
+<section class="w-full h-full overflow-auto bg-white">
+  <div class="sl-root flex h-full">
+    <!-- Left: content -->
+    <div class="sl-left flex flex-col justify-between p-12">
+      <div>
+        <span class="inline-block bg-indigo-100 text-indigo-700 text-xs font-bold tracking-widest uppercase px-3 py-1.5 rounded-full mb-8">Browser · Two Player</span>
+        <h1 class="text-6xl font-black text-slate-900 leading-none mb-5">Tic-Tac-Toe</h1>
+        <p class="text-xl text-slate-500 leading-relaxed max-w-xs">Two players. One 3×3 board.<br/>No signup. No download. Just play.</p>
+      </div>
+      <data-attribution />
+    </div>
+    <!-- Right: visual -->
+    <div class="sl-right bg-indigo-50 flex items-center justify-center p-10">
+      <img
+        src="http://localhost:8001/common/image-generation?prompt=clean+minimal+tic-tac-toe+3x3+grid+bold+X+and+O+marks+flat+design+indigo+blue+and+rose+red+on+white+background+game+board"
+        alt="Tic-Tac-Toe board"
+        class="w-full h-full object-contain rounded-2xl"
+      />
+    </div>
+  </div>
+</section>
