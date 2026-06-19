@@ -113,5 +113,13 @@ export const configurableSchemas: ConfigurableSchemas = {
       required: false,
       label: "Show Subtitle",
     },
+    {
+      fieldName: "boardSize",
+      type: "number",
+      required: true,
+      label: "Board Size",
+      min: 3,
+      max: 6,
+    },
   ],
 };

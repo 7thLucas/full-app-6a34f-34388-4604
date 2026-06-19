@@ -11,10 +11,11 @@ interface GameBoardProps {
 }
 
 /**
- * Renders the 4×4 game grid. Delegates individual cell rendering to BoardCell.
+ * Renders the N×N game grid. Column count is driven by game.boardSize.
+ * Delegates individual cell rendering to BoardCell.
  */
 export function GameBoard({ game, playerXColor, playerOColor, onMove }: GameBoardProps) {
-  const { board, winningLine, status } = game;
+  const { board, winningLine, status, boardSize } = game;
   const isDisabled = status !== "playing";
 
   return (
@@ -24,7 +25,7 @@ export function GameBoard({ game, playerXColor, playerOColor, onMove }: GameBoar
     >
       <div
         className="grid gap-2"
-        style={{ gridTemplateColumns: "repeat(4, 1fr)" }}
+        style={{ gridTemplateColumns: `repeat(${boardSize}, 1fr)` }}
       >
         {board.map((cell, index) => (
           <BoardCell

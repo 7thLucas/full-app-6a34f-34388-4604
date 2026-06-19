@@ -1,16 +1,12 @@
 export type Player = "X" | "O";
 export type Cell = Player | null;
-export type Board = [
-  Cell, Cell, Cell, Cell,
-  Cell, Cell, Cell, Cell,
-  Cell, Cell, Cell, Cell,
-  Cell, Cell, Cell, Cell,
-];
+export type Board = Cell[];
 
 export type GameStatus = "playing" | "won" | "draw";
 
 export interface GameState {
   board: Board;
+  boardSize: number;
   currentPlayer: Player;
   status: GameStatus;
   winner: Player | null;
@@ -23,32 +19,40 @@ export interface ScoreState {
   draws: number;
 }
 
-// 4×4 board: indices 0-15 laid out as:
-//  0  1  2  3
-//  4  5  6  7
-//  8  9 10 11
-// 12 13 14 15
-const WIN_CONDITIONS: [number, number, number, number][] = [
-  // Rows
-  [0, 1, 2, 3],
-  [4, 5, 6, 7],
-  [8, 9, 10, 11],
-  [12, 13, 14, 15],
-  // Columns
-  [0, 4, 8, 12],
-  [1, 5, 9, 13],
-  [2, 6, 10, 14],
-  [3, 7, 11, 15],
-  // Diagonals
-  [0, 5, 10, 15],
-  [3, 6, 9, 12],
-];
+/**
+ * Generates all win conditions for an N×N board (N-in-a-row wins).
+ */
+export function generateWinConditions(n: number): number[][] {
+  const conditions: number[][] = [];
 
-export function detectWinner(board: Board): { winner: Player; line: number[] } | null {
-  for (const [a, b, c, d] of WIN_CONDITIONS) {
-    const cell = board[a];
-    if (cell && cell === board[b] && cell === board[c] && cell === board[d]) {
-      return { winner: cell, line: [a, b, c, d] };
+  // Rows
+  for (let row = 0; row < n; row++) {
+    const line: number[] = [];
+    for (let col = 0; col < n; col++) line.push(row * n + col);
+    conditions.push(line);
+  }
+
+  // Columns
+  for (let col = 0; col < n; col++) {
+    const line: number[] = [];
+    for (let row = 0; row < n; row++) line.push(row * n + col);
+    conditions.push(line);
+  }
+
+  // Main diagonal (top-left → bottom-right)
+  conditions.push(Array.from({ length: n }, (_, i) => i * n + i));
+
+  // Anti diagonal (top-right → bottom-left)
+  conditions.push(Array.from({ length: n }, (_, i) => i * n + (n - 1 - i)));
+
+  return conditions;
+}
+
+export function detectWinner(board: Board, boardSize: number): { winner: Player; line: number[] } | null {
+  for (const line of generateWinConditions(boardSize)) {
+    const cell = board[line[0]];
+    if (cell && line.every((idx) => board[idx] === cell)) {
+      return { winner: cell, line };
     }
   }
   return null;
@@ -58,17 +62,12 @@ export function isBoardFull(board: Board): boolean {
   return board.every((cell) => cell !== null);
 }
 
-export function createInitialBoard(): Board {
-  return [
-    null, null, null, null,
-    null, null, null, null,
-    null, null, null, null,
-    null, null, null, null,
-  ];
+export function createInitialBoard(boardSize: number): Board {
+  return Array(boardSize * boardSize).fill(null);
 }
 
 export function applyMove(board: Board, index: number, player: Player): Board {
-  const next = [...board] as Board;
+  const next = [...board];
   next[index] = player;
   return next;
 }
