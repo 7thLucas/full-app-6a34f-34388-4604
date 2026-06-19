@@ -1,10 +1,10 @@
-# Tic-Tac-Toe
+# TixTax
 
 ## Product
-A lightweight, browser-based two-player Tic-Tac-Toe game. Players take turns marking X and O on a 3×3 grid. The first to align three marks (row, column, or diagonal) wins. If all nine cells fill with no winner, the game ends in a draw.
+A lightweight, browser-based two-player Tic-Tac-Toe game. Players take turns marking X and O on a 3×3 grid. The first to align three marks (row, column, or diagonal) wins. If all nine cells fill with no winner, the game ends in a draw. Score tracking persists across rounds in the same session.
 
 ## Users
-Casual players of any age seeking a quick, zero-setup two-player game on a shared device. No accounts, no downloads — open the URL and play.
+Personal fun side project. Primarily solo use — one person playing both sides, or two people on the same device. No accounts, no downloads — open the URL and play.
 
 ## Positioning
 The simplest version of the game. Opens instantly. No friction between "want to play" and "playing."
@@ -18,7 +18,8 @@ Friendly, minimal, game-first. Clean UI, clear turn indicators, satisfying win s
 - Win detection: checks all 8 win conditions after every move
 - Draw detection: triggers when board is full with no winner
 - Game status display: always shows current turn, winner, or draw
-- Play Again button: one-click reset to a fresh board
+- Score tracking: running tally of X wins, O wins, and draws across rounds
+- Play Again button: one-click reset to a fresh board (scores persist)
 
 ## Scope
 Single-page app. Local two-player (same device). No accounts, no backend persistence, no online multiplayer.
