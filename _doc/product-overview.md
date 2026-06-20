@@ -13,10 +13,10 @@ The simplest version of the game. Opens instantly. No friction between "want to 
 Friendly, minimal, game-first. Clean UI, clear turn indicators, satisfying win state.
 
 ## Core Features
-- Interactive 4×4 game board (clickable cells)
+- Interactive 2×2 game board (clickable cells)
 - Turn-based play: X always goes first, players alternate
-- Win detection: checks all 10 win conditions (4 rows, 4 columns, 2 diagonals) after every move
-- Draw detection: triggers when all 16 cells are filled with no winner
+- Win detection: checks all 6 win conditions (2 rows, 2 columns, 2 diagonals) after every move
+- Draw detection: triggers when all 4 cells are filled with no winner
 - Game status display: always shows current turn, winner, or draw
 - Score tracking: running tally of X wins, O wins, and draws across rounds
 - Play Again button: one-click reset to a fresh board (scores persist)
