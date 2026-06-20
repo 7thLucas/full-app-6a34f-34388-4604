@@ -39,5 +39,5 @@ export const defaultConfigurablesData: TDefaultConfigurableData = {
   gameSubtitle: "Two-player Tic-Tac-Toe",
   playAgainLabel: "Play Again",
   showSubtitle: true,
-  boardSize: 4,
+  boardSize: 2,
 };
