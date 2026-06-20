@@ -16,7 +16,7 @@ export default function IndexPage() {
   const playerXColor = loading ? "#E74C3C" : (config?.playerXColor ?? "#E74C3C");
   const playerOColor = loading ? "#3498DB" : (config?.playerOColor ?? "#3498DB");
   const primaryColor = loading ? "#1A1A2E" : (config?.brandColor?.primary ?? "#1A1A2E");
-  const boardSize = loading ? 4 : (Number(config?.boardSize) || 4);
+  const boardSize = loading ? 10 : (Number(config?.boardSize) || 10);
 
   const { game, score, makeMove, resetGame } = useTicTacToe(boardSize);
 

@@ -119,7 +119,7 @@ export const configurableSchemas: ConfigurableSchemas = {
       required: true,
       label: "Board Size",
       min: 2,
-      max: 6,
+      max: 10,
     },
   ],
 };
